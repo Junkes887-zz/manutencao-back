@@ -1,5 +1,6 @@
 package com.henrique.manutencao.resources;
 
+import java.util.List;
 import com.henrique.manutencao.business.Retorno;
 import com.henrique.manutencao.business.UsuarioBusiness;
 import com.henrique.manutencao.domain.entities.Usuario;
@@ -24,8 +25,18 @@ public class UsuarioResource {
         return usuarioBusiness.logar(usuario);
     }
 
-    @PostMapping(consumes = "application/json", produces = "application/json")
+    @PostMapping(value="/criar-usuario", consumes = "application/json", produces = "application/json")
     public Retorno<Usuario> criar(@RequestBody UsuarioModel usuario) {
         return usuarioBusiness.criar(usuario);
+    }
+
+    @PostMapping(value="/listar-usuarios", consumes = "application/json", produces = "application/json")
+    public Retorno<List<Usuario>> listarUsuarios() {
+        return usuarioBusiness.listarUsuarios();
+    }
+
+    @PostMapping(value="/editar-usuario", consumes = "application/json", produces = "application/json")
+    public  Retorno<Usuario> editar(@RequestBody UsuarioModel usuario) {
+        return  usuarioBusiness.editar(usuario);
     }
 }

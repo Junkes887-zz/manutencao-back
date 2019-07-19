@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 
     Usuario getFirstByNome(String nome);
-    Boolean existsByNomeAndEmail(String nome, String email);
-    Boolean existsByEmailAndSenha(String email, String senha);
+    boolean existsByNomeAndEmail(String nome, String email);
+    boolean existsByEmailAndSenha(String email, String senha);
     Usuario getFirstByEmailAndSenha(String email, String senha);
 }

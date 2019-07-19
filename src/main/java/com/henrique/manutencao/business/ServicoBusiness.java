@@ -19,7 +19,7 @@ public class ServicoBusiness {
         this.servicoService = servicoService;
     }
 
-    public Servico criar (ServicoModel servico){
-        return servicoService.criar(servico);
+    public Retorno<Servico> criar (ServicoModel servico){
+        return new Retorno<>(true,"Servico criado com sucesso!", servicoService.criar(servico));
     }
 }

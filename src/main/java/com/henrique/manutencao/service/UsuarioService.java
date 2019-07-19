@@ -3,6 +3,7 @@ package com.henrique.manutencao.service;
 import com.henrique.manutencao.domain.entities.Usuario;
 import com.henrique.manutencao.domain.models.UsuarioModel;
 import com.henrique.manutencao.repository.UsuarioRepository;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,10 +22,11 @@ public class UsuarioService {
 
     private Usuario converterEmEntidade(UsuarioModel model) {
         Usuario usuario = new Usuario();
-        usuario.setId(null);
+        usuario.setId(model.getId() != null ? model.getId() : null);
         usuario.setNome(model.getNome());
         usuario.setEmail(model.getEmail());
         usuario.setSenha(model.getSenha());
+        usuario.setPermissao(model.getPermissao());
         return usuario;
     }
 
@@ -41,7 +43,16 @@ public class UsuarioService {
         return usuarioRepository.save(usuario);
     }
 
+    public Usuario editar(UsuarioModel model) {
+        Usuario usuario = converterEmEntidade(model);
+        return usuarioRepository.save( usuario);
+    }
+
     public boolean validaSeUsuarioExiste(UsuarioModel model){
         return usuarioRepository.existsByNomeAndEmail(model.getNome(),model.getEmail());
+    }
+
+    public List<Usuario> findAll(){
+        return usuarioRepository.findAll();
     }
 }

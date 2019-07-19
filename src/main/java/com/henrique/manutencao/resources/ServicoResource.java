@@ -1,5 +1,6 @@
 package com.henrique.manutencao.resources;
 
+import com.henrique.manutencao.business.Retorno;
 import com.henrique.manutencao.business.ServicoBusiness;
 import com.henrique.manutencao.domain.entities.Servico;
 import com.henrique.manutencao.domain.models.ServicoModel;
@@ -25,8 +26,8 @@ public class ServicoResource {
         return servico;
     }
 
-    @PostMapping(consumes = "application/json", produces = "application/json")
-    public Servico criar(@RequestBody ServicoModel servico) {
+    @PostMapping(value="/criar-servico", consumes = "application/json", produces = "application/json")
+    public Retorno<Servico> criar(@RequestBody ServicoModel servico) {
         return servicoBusiness.criar(servico);
     }
 

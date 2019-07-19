@@ -4,17 +4,17 @@ import java.io.Serializable;
 
 public class UsuarioModel implements Serializable {
 
-    private Integer id;
+    private Long id;
     private String nome;
     private String email;
     private String senha;
-    private Integer nivel;
+    private Integer permissao;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -42,11 +42,11 @@ public class UsuarioModel implements Serializable {
         this.senha = senha;
     }
 
-    public Integer getNivel() {
-        return nivel;
+    public Integer getPermissao() {
+        return permissao;
     }
 
-    public void setNivel(Integer nivel) {
-        this.nivel = nivel;
+    public void setPermissao(Integer permissao) {
+        this.permissao = permissao;
     }
 }

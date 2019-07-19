@@ -27,7 +27,6 @@ public class ServicoService {
         return servico;
     }
 
-
     public Servico criar(ServicoModel model) {
         Servico servico = converterEmEntidade(model);
         return servicoRepository.save(servico);
