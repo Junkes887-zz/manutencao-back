@@ -1,5 +1,7 @@
 package com.henrique.manutencao.domain.models;
 
+import com.henrique.manutencao.domain.PermissaoEnum;
+
 import java.io.Serializable;
 
 public class UsuarioModel implements Serializable {
@@ -8,7 +10,7 @@ public class UsuarioModel implements Serializable {
     private String nome;
     private String email;
     private String senha;
-    private Integer permissao;
+    private String permissao;
 
     public Long getId() {
         return id;
@@ -42,11 +44,11 @@ public class UsuarioModel implements Serializable {
         this.senha = senha;
     }
 
-    public Integer getPermissao() {
+    public String getPermissao() {
         return permissao;
     }
 
-    public void setPermissao(Integer permissao) {
+    public void setPermissao(String permissao) {
         this.permissao = permissao;
     }
 }

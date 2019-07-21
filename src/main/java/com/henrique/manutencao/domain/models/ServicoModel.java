@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class ServicoModel implements Serializable {
 
-    private Integer id;
+    private Long id;
     private String descricao;
     private Double valor;
     private Date data_ini;
@@ -16,11 +16,11 @@ public class ServicoModel implements Serializable {
     private Long id_responsavel;
     private String responsavel;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

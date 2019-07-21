@@ -1,5 +1,6 @@
 package com.henrique.manutencao.resources;
 
+import java.util.List;
 import com.henrique.manutencao.business.Retorno;
 import com.henrique.manutencao.business.ServicoBusiness;
 import com.henrique.manutencao.domain.entities.Servico;
@@ -19,11 +20,9 @@ public class ServicoResource {
         this.servicoBusiness = servicoBusiness;
     }
 
-    @GetMapping(consumes = "application/json", produces = "application/json")
-    public Servico pesquisar() {
-        Servico servico = new Servico();
-        servico.setId(100L);
-        return servico;
+    @PostMapping(value="/listar-servicos", consumes = "application/json", produces = "application/json")
+    public Retorno<List<Servico>> listarServicos() {
+        return servicoBusiness.listarServicos();
     }
 
     @PostMapping(value="/criar-servico", consumes = "application/json", produces = "application/json")

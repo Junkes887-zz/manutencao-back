@@ -1,5 +1,7 @@
 package com.henrique.manutencao.domain.entities;
 
+import com.henrique.manutencao.domain.PermissaoEnum;
+
 import javax.persistence.*;
 
 @Entity
@@ -17,7 +19,8 @@ public class Usuario  {
 
     private String senha;
 
-    private Integer permissao;
+    @Enumerated(EnumType.ORDINAL)
+    private PermissaoEnum permissao;
 
     public Long getId() {
         return id;
@@ -51,11 +54,11 @@ public class Usuario  {
         this.senha = senha;
     }
 
-    public Integer getPermissao() {
+    public PermissaoEnum getPermissao() {
         return permissao;
     }
 
-    public void setPermissao(Integer permissao) {
+    public void setPermissao(PermissaoEnum permissao) {
         this.permissao = permissao;
     }
 }

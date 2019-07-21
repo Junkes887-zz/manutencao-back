@@ -1,5 +1,6 @@
 package com.henrique.manutencao.service;
 
+import com.henrique.manutencao.domain.PermissaoEnum;
 import com.henrique.manutencao.domain.entities.Usuario;
 import com.henrique.manutencao.domain.models.UsuarioModel;
 import com.henrique.manutencao.repository.UsuarioRepository;
@@ -20,14 +21,24 @@ public class UsuarioService {
         this.usuarioRepository = usuarioRepository;
     }
 
-    private Usuario converterEmEntidade(UsuarioModel model) {
+    public Usuario converterEmEntidade(UsuarioModel model) {
         Usuario usuario = new Usuario();
         usuario.setId(model.getId() != null ? model.getId() : null);
         usuario.setNome(model.getNome());
         usuario.setEmail(model.getEmail());
         usuario.setSenha(model.getSenha());
-        usuario.setPermissao(model.getPermissao());
+        usuario.setPermissao(PermissaoEnum.valueOf(PermissaoEnum.class, model.getPermissao()));
         return usuario;
+    }
+
+    public UsuarioModel converterEmModel(Usuario usuario) {
+        UsuarioModel model = new UsuarioModel();
+        model.setId(usuario.getId() != null ? usuario.getId() : null);
+        model.setNome(usuario.getNome());
+        model.setEmail(usuario.getEmail());
+        model.setSenha(usuario.getSenha());
+        model.setPermissao(usuario.getPermissao().name());
+        return model;
     }
 
     public boolean logar(UsuarioModel model) {
@@ -45,11 +56,11 @@ public class UsuarioService {
 
     public Usuario editar(UsuarioModel model) {
         Usuario usuario = converterEmEntidade(model);
-        return usuarioRepository.save( usuario);
+        return usuarioRepository.save(usuario);
     }
 
     public boolean validaSeUsuarioExiste(UsuarioModel model){
-        return usuarioRepository.existsByNomeAndEmail(model.getNome(),model.getEmail());
+        return usuarioRepository.existsByNomeOrEmail(model.getNome(),model.getEmail());
     }
 
     public List<Usuario> findAll(){

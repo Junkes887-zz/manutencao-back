@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/usuarios")
+@RequestMapping("/api/usuario")
 public class UsuarioResource {
 
     private UsuarioBusiness usuarioBusiness;
@@ -31,7 +31,7 @@ public class UsuarioResource {
     }
 
     @PostMapping(value="/listar-usuarios", consumes = "application/json", produces = "application/json")
-    public Retorno<List<Usuario>> listarUsuarios() {
+    public Retorno<List<UsuarioModel>> listarUsuarios() {
         return usuarioBusiness.listarUsuarios();
     }
 

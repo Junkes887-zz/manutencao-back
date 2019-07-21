@@ -1,5 +1,6 @@
 package com.henrique.manutencao.business;
 
+import java.util.List;
 import com.henrique.manutencao.domain.entities.Servico;
 import com.henrique.manutencao.domain.models.ServicoModel;
 import com.henrique.manutencao.service.ServicoService;
@@ -21,5 +22,13 @@ public class ServicoBusiness {
 
     public Retorno<Servico> criar (ServicoModel servico){
         return new Retorno<>(true,"Servico criado com sucesso!", servicoService.criar(servico));
+    }
+
+    public Retorno<List<Servico>> listarServicos() {
+        try {
+            return new Retorno<List<Servico>>(true,"Lista de servicçs", servicoService.findAll());
+        } catch (Exception ex) {
+            return new Retorno<List<Servico>>(false,"Erro ao trazer lista de serviços",null);
+        }
     }
 }
