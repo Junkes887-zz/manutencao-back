@@ -24,6 +24,10 @@ public class ServicoBusiness {
         return new Retorno<>(true,"Servico criado com sucesso!", servicoService.criar(servico));
     }
 
+    public Retorno<Servico> editar (ServicoModel servico){
+        return new Retorno<>(true, "Serviço salvado com sucesso!", servicoService.editar(servico));
+    }
+
     public Retorno<List<Servico>> listarServicos() {
         try {
             return new Retorno<List<Servico>>(true,"Lista de servicçs", servicoService.findAll());

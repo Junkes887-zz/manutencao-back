@@ -8,13 +8,17 @@ public class ServicoModel implements Serializable {
     private Long id;
     private String descricao;
     private Double valor;
-    private Date data_ini;
-    private Date data_fim;
-    private Integer status;
+    private String data_ini;
+    private String data_fim;
+    private String status;
     private String cliente;
     private Long id_cliente;
     private Long id_responsavel;
     private String responsavel;
+    private String prioridade;
+    private String marca;
+    private String tipo;
+    private String observacao;
 
     public Long getId() {
         return id;
@@ -40,27 +44,27 @@ public class ServicoModel implements Serializable {
         this.valor = valor;
     }
 
-    public Date getData_ini() {
+    public String getData_ini() {
         return data_ini;
     }
 
-    public void setData_ini(Date data_ini) {
+    public void setData_ini(String data_ini) {
         this.data_ini = data_ini;
     }
 
-    public Date getData_fim() {
+    public String getData_fim() {
         return data_fim;
     }
 
-    public void setData_fim(Date data_fim) {
+    public void setData_fim(String data_fim) {
         this.data_fim = data_fim;
     }
 
-    public Integer getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(Integer status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
@@ -94,5 +98,37 @@ public class ServicoModel implements Serializable {
 
     public void setResponsavel(String responsavel) {
         this.responsavel = responsavel;
+    }
+
+    public String getPrioridade() {
+        return prioridade;
+    }
+
+    public void setPrioridade(String prioridade) {
+        this.prioridade = prioridade;
+    }
+
+    public String getMarca() {
+        return marca;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public String getObservacao() {
+        return observacao;
+    }
+
+    public void setObservacao(String observacao) {
+        this.observacao = observacao;
     }
 }

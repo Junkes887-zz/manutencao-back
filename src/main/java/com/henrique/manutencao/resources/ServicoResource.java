@@ -30,4 +30,8 @@ public class ServicoResource {
         return servicoBusiness.criar(servico);
     }
 
+    @PostMapping(value="/editar-servico", consumes = "application/json", produces = "application/json")
+    public Retorno<Servico> editar(@RequestBody ServicoModel servico) {
+        return servicoBusiness.editar(servico);
+    }
 }

@@ -34,10 +34,19 @@ public class ServicoService {
         servico.setId_cliente(model.getId_cliente());
         servico.setId_responsavel(model.getId_responsavel());
         servico.setResponsavel(model.getResponsavel());
+        servico.setPrioridade(model.getPrioridade());
+        servico.setMarca(model.getMarca());
+        servico.setTipo(model.getTipo());
+        servico.setObservacao(model.getObservacao());
         return servico;
     }
 
     public Servico criar(ServicoModel model) {
+        Servico servico = converterEmEntidade(model);
+        return servicoRepository.save(servico);
+    }
+
+    public Servico editar(ServicoModel model){
         Servico servico = converterEmEntidade(model);
         return servicoRepository.save(servico);
     }
